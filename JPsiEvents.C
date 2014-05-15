@@ -218,7 +218,7 @@ float computeTheLowestdEta(int iteSeed){///function cut on paste so largest mean
     return largestDeta;
 }
 
-JPsiEvents(TString minitreeFile){
+JPsiEvents(TString minitreeFile, TString nameSample){
     
     myOutFile = new TFile("minitree_"+nameSample+".root","RECREATE");
     
