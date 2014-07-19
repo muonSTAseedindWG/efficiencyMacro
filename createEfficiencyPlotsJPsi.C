@@ -53,7 +53,7 @@ void drawSetHisto(TString nomPlot, TString variable, TString denomCut, float the
 }
 
 
-createEfficiencyPlotsJPsi(TString dataset){
+void createEfficiencyPlotsJPsi(TString dataset){
     chain->Add("minitree_"+dataset+".root");
     
     myFile = new TFile("histo_"+dataset+".root","RECREATE");
@@ -93,8 +93,8 @@ createEfficiencyPlotsJPsi(TString dataset){
         histoEffdR->Write();
         TH1F* histoEffPt = giveEfficiency("effVsPt_"+nameCut[i], "pair_pt", theCut[i], "1", PtBinsbins, nbPtBins);
         histoEffPt->Write();
-        TH1F* histoEffPt = giveEfficiency("effVsMuPt_"+nameCut[i], "mu_pt", theCut[i], "1", PtMuBinsbins, nbPtMuBins);
-        histoEffPt->Write();
+        TH1F* histoEffMuPt = giveEfficiency("effVsMuPt_"+nameCut[i], "mu_pt", theCut[i], "1", PtMuBinsbins, nbPtMuBins);
+        histoEffMuPt->Write();
         TH1F* histoEffDPhi = giveEfficiency("effVsMudPhi_"+nameCut[i], "pair_dPhi", theCut[i], "1", phiBins, nbOfphiBins);
         histoEffDPhi->Write();
     }
